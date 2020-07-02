@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Ignats_Hometasks/static/css/main.fe7e47d3.chunk.css",
-    "main.js": "/Ignats_Hometasks/static/js/main.44d5473d.chunk.js",
-    "main.js.map": "/Ignats_Hometasks/static/js/main.44d5473d.chunk.js.map",
-    "runtime-main.js": "/Ignats_Hometasks/static/js/runtime-main.e6414b3c.js",
-    "runtime-main.js.map": "/Ignats_Hometasks/static/js/runtime-main.e6414b3c.js.map",
-    "static/js/2.3e4273fd.chunk.js": "/Ignats_Hometasks/static/js/2.3e4273fd.chunk.js",
-    "static/js/2.3e4273fd.chunk.js.map": "/Ignats_Hometasks/static/js/2.3e4273fd.chunk.js.map",
-    "index.html": "/Ignats_Hometasks/index.html",
-    "precache-manifest.7a2ce3e47cd99ace99e7f13ad7c9055d.js": "/Ignats_Hometasks/precache-manifest.7a2ce3e47cd99ace99e7f13ad7c9055d.js",
-    "service-worker.js": "/Ignats_Hometasks/service-worker.js",
-    "static/css/main.fe7e47d3.chunk.css.map": "/Ignats_Hometasks/static/css/main.fe7e47d3.chunk.css.map",
-    "static/js/2.3e4273fd.chunk.js.LICENSE.txt": "/Ignats_Hometasks/static/js/2.3e4273fd.chunk.js.LICENSE.txt"
+    "main.css": "/Ignats_HometasksMod/static/css/main.fe7e47d3.chunk.css",
+    "main.js": "/Ignats_HometasksMod/static/js/main.9124ea05.chunk.js",
+    "main.js.map": "/Ignats_HometasksMod/static/js/main.9124ea05.chunk.js.map",
+    "runtime-main.js": "/Ignats_HometasksMod/static/js/runtime-main.4f05ff87.js",
+    "runtime-main.js.map": "/Ignats_HometasksMod/static/js/runtime-main.4f05ff87.js.map",
+    "static/js/2.3e4273fd.chunk.js": "/Ignats_HometasksMod/static/js/2.3e4273fd.chunk.js",
+    "static/js/2.3e4273fd.chunk.js.map": "/Ignats_HometasksMod/static/js/2.3e4273fd.chunk.js.map",
+    "index.html": "/Ignats_HometasksMod/index.html",
+    "precache-manifest.f351a426b82e20d089ee0be8450abb10.js": "/Ignats_HometasksMod/precache-manifest.f351a426b82e20d089ee0be8450abb10.js",
+    "service-worker.js": "/Ignats_HometasksMod/service-worker.js",
+    "static/css/main.fe7e47d3.chunk.css.map": "/Ignats_HometasksMod/static/css/main.fe7e47d3.chunk.css.map",
+    "static/js/2.3e4273fd.chunk.js.LICENSE.txt": "/Ignats_HometasksMod/static/js/2.3e4273fd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e6414b3c.js",
+    "static/js/runtime-main.4f05ff87.js",
     "static/js/2.3e4273fd.chunk.js",
     "static/css/main.fe7e47d3.chunk.css",
-    "static/js/main.44d5473d.chunk.js"
+    "static/js/main.9124ea05.chunk.js"
   ]
 }
