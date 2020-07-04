@@ -1,0 +1,8 @@
+.buttonsBlock{
+    display: flex;
+    flex-direction: row;
+   margin-left: 500px;
+}
+ButtonNew{
+    margin-left: 10px;
+}

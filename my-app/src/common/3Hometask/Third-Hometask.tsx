@@ -11,11 +11,11 @@ type ThirdHometaskTypes = {
     nNew: string,
     newArr: Array<AppTypes>,
     onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void,
-    onClickHandler: () => void,
     onKeyPressHandler: (e: KeyboardEvent<HTMLInputElement>) => void,
     typeofButton:boolean,
     setnNew:(value:string)=>void,
     error?:string|null,
+    NewElemInNewArr:(name:string)=>void,
 
 
 }
@@ -26,6 +26,7 @@ function ThirdHometask(props: ThirdHometaskTypes) {
     return (
         <div className={TH.inputContainer}>
             <InputNew
+                autoFocus={true}
                 error={props.error}
                 setnNew={props.setnNew}
                 nNew={props.nNew}
@@ -33,9 +34,13 @@ function ThirdHometask(props: ThirdHometaskTypes) {
                 onKeyPressHandler={props.onKeyPressHandler}
             />
 
-            <ButtonNew onClickHandler={props.onClickHandler}
-                       name={"ADD"}
+            <ButtonNew
+                        setnNew={props.setnNew}
+                        nNew={props.nNew}
+                        NewElemInNewArr={props.NewElemInNewArr}
+                        name={"ADD"}
                         typeofButton={props.typeofButton}/>
+
             <div className={TH.counter}><p>Обьектов в массиве:</p>
                 <span className={TH.span}>{props.newArr.length}</span>
 

@@ -40,16 +40,6 @@ function App() {
         alert('Функция сработала на энтер!!');
     }
 
-    function onClickHandler() {
-        setErr("sd")
-        if (nNew !== '') {
-            // alert('Privet' + ' ' + nNew);
-            NewElemInNewArr(nNew);
-            setnNew('');
-
-        }
-    }
-
     function onKeyPressHandler() {
         (nNew !== "" && NewElemInNewArr(nNew));
         (nNew !== "" && alert('Privet' + ' ' + nNew));
@@ -64,7 +54,6 @@ function App() {
                     <Switch>
                         <Route exact path='/PreJunior' render={() => <PreJunior
                             onKeyPressHandler={onKeyPressHandler}
-                            onClickHandler={onClickHandler}
                             onEnter={onEnter}
                             onChangeHandler={onChangeHandler}
                             error={error}
@@ -72,9 +61,13 @@ function App() {
                             setnNew={setnNew}
                             typeofButton={false}
                             newArr={newArr}
+                            NewElemInNewArr={NewElemInNewArr}
+
 
                         />}/>
-                        <Route exact path='/Junior' render={() => <Junior/>}/>
+                        <Route exact path='/Junior' render={() => <Junior
+                            nNew={nNew}
+                        />}/>
                         <Route exact path='/Junior+' render={() => <JuniorPlus/>}/>
                     </Switch>
                 </div>

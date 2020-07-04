@@ -16,9 +16,12 @@ export type InputNyaTypes = {
     newArr?: Array<AppTypes>,
     onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void,
     onKeyPressHandler?: (e: KeyboardEvent<HTMLInputElement>) => void,
-    setnNew: (value: string) => void,
+    setnNew?: (value: string) => void,
     onEnter?: () => void,
     error?: string | null,
+    autoFocus:boolean,
+    onBlur?:()=>void,
+    offEditMode?:()=>void,
 };
 
 
@@ -36,7 +39,9 @@ function InputNew(props: InputNyaTypes) {
             <input className={props.error !== " " ? s.inputNya : s.inputNya + " " + s.errorStyle}
                    value={props.nNew}
                    onKeyPress={onKeyPressHandler}
-                   onChange={props.onChangeHandler}/>
+                   onChange={props.onChangeHandler}
+                   onBlur={props.offEditMode}
+                   autoFocus={true}/>
 
 
         </>

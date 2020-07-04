@@ -4,17 +4,20 @@ import InputNew from "../input/inputNew";
 import ButtonNew from "../button/Button";
 import CheckBoxNew from "../checkBox/CheckBox";
 import {AppTypes} from "../../App";
+import PJ from "./PJ.module.css";
+import EditableSpan from "../EditableSpan/EditableSpan";
 
 type PreJunior = {
     nNew: string,
     newArr: Array<AppTypes>,
     onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void,
-    onClickHandler: () => void,
     onKeyPressHandler: (e: KeyboardEvent<HTMLInputElement>) => void,
     typeofButton:boolean,
     setnNew:(value:string)=>void,
     error?:string|null,
     onEnter:()=>void,
+    NewElemInNewArr:(name:string)=>void,
+
 }
 
 function PreJunior(props:PreJunior){
@@ -25,22 +28,28 @@ function PreJunior(props:PreJunior){
                 newArr={props.newArr}
                 onKeyPressHandler={props.onKeyPressHandler}
                 onChangeHandler={props.onChangeHandler}
-                onClickHandler={props.onClickHandler}
                 typeofButton={false}
                 setnNew={props.setnNew}
                 error={props.error}
+                NewElemInNewArr={props.NewElemInNewArr}
+
             />
 
             <div className="wrapperForNew">
                 <InputNew
+                    autoFocus={true}
                     onKeyPressHandler={props.onKeyPressHandler}
                     onEnter={props.onEnter}
                     setnNew={props.setnNew}
                 />
                 <ButtonNew
                     name={"Моя кнопка"}
-                    typeofButton={true}/>
+                    typeofButton={true}
+                    nNew={props.nNew}/>
+
                 <CheckBoxNew/>
+
+
 
             </div>
         </div>
