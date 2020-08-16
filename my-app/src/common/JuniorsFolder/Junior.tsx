@@ -61,7 +61,7 @@ function Junior(props: JuniorTypes) {
         saveState<StateType>("test", {value: title});
     }
     const restoreTitle = () => {
-        const state: StateType = restoreState<StateType>("test", {value: ''});
+        const state: StateType = restoreState<StateType>("test", {value: 'jhh'});
 
     }
 
