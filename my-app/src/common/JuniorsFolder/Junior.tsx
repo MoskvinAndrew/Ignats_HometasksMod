@@ -8,6 +8,7 @@ import Select from "../Select/Select";
 import {v1} from "uuid";
 import Radio from "../Radio/radio";
 import SelectComponent from "../Select/Select";
+import {HomeTask8} from "../Hometask8/homeTask8";
 
 export type ArrayForSelect = {
     id: string,
@@ -34,10 +35,10 @@ function Junior(props: JuniorTypes) {
 
     let [title, settitle] = useState<string>("Кликни на мне 2 раза");
 
-    let [radioValue,setRadioValue] = useState<ArrayForRadio>(ArrayForRadio[2]);
-    let OnChange = ()=>{
-
-    }
+    // let [radioValue,setRadioValue] = useState<ArrayForRadio>(ArrayForRadio[2]);
+    // let OnChange = ()=>{
+    //
+    // }
 
     let [parentValue, setParentValue] = useState<string | undefined>('1');
 
@@ -47,10 +48,10 @@ function Junior(props: JuniorTypes) {
         setParentValue(a.digit)};
     }
     const onRadioChange = (id:string)=>{
-      let a = ArrayForRadio.find(e=>e.id == id) ;
-      if(a){
-          a.isChecked = true;
-          console.log(a)
+      let choseValue = ArrayForRadio.find(e=>e.id == id) ;
+      if(choseValue){
+          choseValue.isChecked = true;
+          console.log(choseValue)
       }
 
     }
@@ -81,10 +82,10 @@ function Junior(props: JuniorTypes) {
                            onClick={restoreTitle}/>
             </div>
 
-
+<div className={J. Sevenand8TaskContainer}>
             <div className={J.hometaskSeven}>
 
-                <h2>Седьмая домашка</h2>
+                <h2>Седьмая домашка:</h2>
 
                 <div className={J.selectComponent}>
             <SelectComponent value={ArrayForSelect}
@@ -97,6 +98,8 @@ function Junior(props: JuniorTypes) {
                     onRadioChange={onRadioChange}/>
         </div>
             </div>
+            <HomeTask8/>
+</div>
         </div>)
 }
 
