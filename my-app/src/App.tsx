@@ -39,6 +39,13 @@ function App() {
     let onEnter = () => {
         alert('Функция сработала на энтер!!');
     }
+    let onClick = () =>{
+
+        if (nNew !== '') {
+            NewElemInNewArr(nNew);
+            setnNew('');
+        }
+    }
 
     function onKeyPressHandler() {
         (nNew !== "" && NewElemInNewArr(nNew));
@@ -62,11 +69,12 @@ function App() {
                             typeofButton={false}
                             newArr={newArr}
                             NewElemInNewArr={NewElemInNewArr}
+                            onClick={onClick}
 
 
                         />}/>
                         <Route exact path='/Junior' render={() => <Junior
-                            nNew={nNew}
+
                         />}/>
                         <Route exact path='/Junior+' render={() => <JuniorPlus/>}/>
                     </Switch>

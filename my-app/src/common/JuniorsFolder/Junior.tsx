@@ -1,49 +1,103 @@
-import React from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import EditableSpan from "../EditableSpan/EditableSpan";
 import J from "./Junior.module.css";
 
 import ButtonNew from "../button/Button";
+import {restoreState, saveState, StateType} from "../helpers";
+import Select from "../Select/Select";
+import {v1} from "uuid";
+import Radio from "../Radio/radio";
+import SelectComponent from "../Select/Select";
 
-type StateType = {
-    x: string
-    y: number
+export type ArrayForSelect = {
+    id: string,
+    item: string,
+    digit:string
 }
-type JuniorTypes={
-    nNew:string,
+export type ArrayForRadio = {
+    id: string,
+    item: string
+    isChecked:boolean
 }
+type JuniorTypes = {}
 
-function Junior(props:JuniorTypes){
+function Junior(props: JuniorTypes) {
+    let ArrayForSelect = [{id: v1(), item: 'Чебурашка',digit: '1'},
+        {id: v1(), item: 'Крокодил Гена',digit: '2'},
+        {id: v1(), item: 'Шапокляк',digit: '3'},
+        {id: v1(), item: 'Крыса Лариса',digit: '4'}];
+    let ArrayForRadio = [{id: v1(), item: 'Чебурашка',isChecked:false},
+        {id: v1(), item: 'Крокодил Гена',isChecked:false},
+        {id: v1(), item: 'Шапокляк',isChecked:false},
+        {id: v1(), item: 'Крыса Лариса',isChecked:false}];
 
-    saveState<StateType>("test", {x: "A", y: 1});
 
-    const state: StateType = restoreState<StateType>("test", {x: "", y:0});
+    let [title, settitle] = useState<string>("Кликни на мне 2 раза");
 
-    function saveState<T> (key: string, state: T) {
-        const stateAsString = JSON.stringify(state);
-        localStorage.setItem(key, stateAsString)
+    let [radioValue,setRadioValue] = useState<ArrayForRadio>(ArrayForRadio[2]);
+    let OnChange = ()=>{
+
     }
 
-    function restoreState<T>(key: string, defaultState: T) {
-        const stateAsString = localStorage.getItem(key);
-        if (stateAsString !== null) defaultState = JSON.parse(stateAsString) as T;
-        return defaultState;
+    let [parentValue, setParentValue] = useState<string | undefined>('1');
+
+    let  onSelectChange = (selectValue:string)=>{
+        let a = ArrayForSelect.find(a=>a.item == selectValue);
+        if(a){
+        setParentValue(a.digit)};
+    }
+    const onRadioChange = (id:string)=>{
+      let a = ArrayForRadio.find(e=>e.id == id) ;
+      if(a){
+          a.isChecked = true;
+          console.log(a)
+      }
+
     }
 
-    return(
-        <div >
-            <EditableSpan />
+
+    const saveClick = () => {
+        saveState<StateType>("test", {value: title});
+    }
+    const restoreTitle = () => {
+        const state: StateType = restoreState<StateType>("test", {value: ''});
+
+    }
+
+
+
+    return (
+        <div>
+            <EditableSpan title={title}
+                          settitle={settitle}/>
             <div className={J.buttonsBlock}>
-            <ButtonNew name={"Сохранить"}
-                       typeofButton={true}
-                       nNew={props.nNew}
+                <ButtonNew name={"Сохранить"}
+                           typeofButton={true}
+                           onClick={saveClick}
 
-                       />
-            <ButtonNew name={"Восстановить"}
-                       typeofButton={false}
-                       nNew={props.nNew}/>
+                />
+                <ButtonNew name={"Воcстановить"}
+                           typeofButton={false}
+                           onClick={restoreTitle}/>
             </div>
+
+
+            <div className={J.hometaskSeven}>
+
+                <h2>Седьмая домашка</h2>
+
+                <div className={J.selectComponent}>
+            <SelectComponent value={ArrayForSelect}
+                             onSelectChange={onSelectChange}
+                    parentValue={parentValue}/>
+                </div>
+                <div className={J.radioComponent}>
+            <Radio  value={ArrayForRadio}
+            name={"HomeTask"}
+                    onRadioChange={onRadioChange}/>
         </div>
-    )
+            </div>
+        </div>)
 }
 
 export default Junior;

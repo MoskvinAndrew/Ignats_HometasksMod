@@ -17,6 +17,7 @@ type PreJunior = {
     error?:string|null,
     onEnter:()=>void,
     NewElemInNewArr:(name:string)=>void,
+    onClick:()=>void,
 
 }
 
@@ -32,6 +33,8 @@ function PreJunior(props:PreJunior){
                 setnNew={props.setnNew}
                 error={props.error}
                 NewElemInNewArr={props.NewElemInNewArr}
+                onClick={props.onClick}
+
 
             />
 
@@ -45,7 +48,8 @@ function PreJunior(props:PreJunior){
                 <ButtonNew
                     name={"Моя кнопка"}
                     typeofButton={true}
-                    nNew={props.nNew}/>
+                    onClick={()=>console.log("sdf")}
+                    />
 
                 <CheckBoxNew/>
 

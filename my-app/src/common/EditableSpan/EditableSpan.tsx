@@ -5,28 +5,29 @@ import ES from "./ES.module.css"
 
 
 type EditableSpanType={
-
+    title:string;
+    settitle:(title:string)=>void,
 }
 
-function EditableSpan (){
+function EditableSpan (props:EditableSpanType){
 
 
 
 
     let [editMode,setEditMode]=useState(false);
 
-    let [title,settitle]=useState<string>("Кликни на мне 2 раза")
+    // let [title,settitle]=useState<string>("Кликни на мне 2 раза")
 
     const onEditMode = ()=>{
         setEditMode(true);
     }
     const offEditMode = ()=>{
         setEditMode(false);
-        settitle(title);
+        props.settitle(props.title);
     }
 
     const changeTitle = (e: ChangeEvent<HTMLInputElement>)=>{
-        settitle(e.currentTarget.value)
+        props.settitle(e.currentTarget.value)
     }
 
 
@@ -40,7 +41,7 @@ function EditableSpan (){
             onKeyPressHandler={offEditMode}
             onChangeHandler={changeTitle}
             offEditMode={offEditMode}/>:
-        <span className={ES.editableSpan} onDoubleClick={onEditMode}>{title}</span>}
+        <span className={ES.editableSpan} onDoubleClick={onEditMode}>{props.title}</span>}
 
 
 

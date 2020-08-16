@@ -16,6 +16,7 @@ type ThirdHometaskTypes = {
     setnNew:(value:string)=>void,
     error?:string|null,
     NewElemInNewArr:(name:string)=>void,
+    onClick:()=>void,
 
 
 }
@@ -35,11 +36,9 @@ function ThirdHometask(props: ThirdHometaskTypes) {
             />
 
             <ButtonNew
-                        setnNew={props.setnNew}
-                        nNew={props.nNew}
-                        NewElemInNewArr={props.NewElemInNewArr}
                         name={"ADD"}
-                        typeofButton={props.typeofButton}/>
+                        typeofButton={props.typeofButton}
+                        onClick={props.onClick}/>
 
             <div className={TH.counter}><p>Обьектов в массиве:</p>
                 <span className={TH.span}>{props.newArr.length}</span>

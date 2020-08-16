@@ -1,8 +1,19 @@
 .buttonsBlock{
     display: flex;
     flex-direction: row;
-   margin-left: 500px;
+   margin-left: 650px;
 }
 ButtonNew{
     margin-left: 10px;
+}
+.selectComponent{
+    margin-top: 50px;
+}
+.radioComponent{
+    margin-top: 50px;
+}
+.hometaskSeven{
+    border:1px solid darkolivegreen;
+    margin-left: 100px;
+    margin-right: 100px;
 }
