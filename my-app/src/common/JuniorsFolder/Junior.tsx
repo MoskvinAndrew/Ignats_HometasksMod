@@ -35,11 +35,6 @@ function Junior(props: JuniorTypes) {
 
     let [title, settitle] = useState<string>("Кликни на мне 2 раза");
 
-    // let [radioValue,setRadioValue] = useState<ArrayForRadio>(ArrayForRadio[2]);
-    // let OnChange = ()=>{
-    //
-    // }
-
     let [parentValue, setParentValue] = useState<string | undefined>('1');
 
     let  onSelectChange = (selectValue:string)=>{

@@ -8,7 +8,7 @@ export const HomeTask8 = ()=>{
 
     let [peoples,dispatchToPeoples] = useReducer(hwReducer,testReducerArray)
 
-    let arrayOfGuys = peoples.map(a=> <p>Name: {a.name}, age: {a.age}</p> )
+    let arrayOfGuys = peoples.map(a=> <div key={a.id}><p >Name: {a.name}, age: {a.age}</p></div> )
 
     function sortPeoplesByNameUp () {
         const action = sortPeoplesAC('up');

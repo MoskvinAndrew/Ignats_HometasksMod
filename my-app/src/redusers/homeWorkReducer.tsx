@@ -28,7 +28,8 @@ export let testReducerArray = [
     {id: v1(), name: 'Dima', age: 30},
     {id: v1(), name: 'Aleksandr', age: 17},
     {id: v1(), name: 'Arsenii', age: 22},
-    {id: v1(), name: 'Kolya', age: 12},{id: v1(), name: 'Kolya', age: 12}];
+    {id: v1(), name: 'Kolya', age: 12},
+    {id: v1(), name: 'Kolya', age: 12}];
 
 
 

@@ -17,8 +17,8 @@ function SelectComponent (props:SelectTypes){
 
      let onChangeHandler = ((event: ChangeEvent<{ name?: string | undefined; value: unknown; }>)=>{
        let selectValue = event.currentTarget.value;
-       // @ts-ignore
-         props.onSelectChange(selectValue)
+
+         props.onSelectChange(selectValue as string);
 
 
       })
