@@ -12,6 +12,8 @@ export type ButtonNewTypes = {
 
 
 
+
+
 }
 
 
@@ -20,7 +22,7 @@ function ButtonNew(props: ButtonNewTypes) {
 
     return (
         <div className={props.typeofButton?B.box1 +" "+B.box11:B.box1}>
-            <div className={B.btn + ' ' + B.btnone} onClick={props.onClick} >
+            <div className={B.btn + ' ' + B.btnone} onClick={props.onClick}>
                 <span>{props.name}</span>
             </div>
         </div>)

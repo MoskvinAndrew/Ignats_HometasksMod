@@ -1,0 +1,15 @@
+.timeContainer{
+    border: 5px solid #7f6e24;
+    margin: 20px;
+    margin-right: 200px;
+    margin-left: 200px;
+    border-radius: 10px;
+    background-color: #d4d0a7;
+
+}
+.buttonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}

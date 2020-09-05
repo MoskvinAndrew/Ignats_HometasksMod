@@ -1,14 +1,13 @@
 import React, {ChangeEvent, useState} from 'react';
 import EditableSpan from "../EditableSpan/EditableSpan";
 import J from "./Junior.module.css";
-
 import ButtonNew from "../button/Button";
 import {restoreState, saveState, StateType} from "../helpers";
-import Select from "../Select/Select";
 import {v1} from "uuid";
 import Radio from "../Radio/radio";
 import SelectComponent from "../Select/Select";
 import {HomeTask8} from "../Hometask8/homeTask8";
+import Time from "../HomeTask9/homeTask9";
 
 export type ArrayForSelect = {
     id: string,
@@ -63,7 +62,8 @@ function Junior(props: JuniorTypes) {
 
 
     return (
-        <div>
+        <div className={J.wrrapp}>
+
             <EditableSpan title={title}
                           settitle={settitle}/>
             <div className={J.buttonsBlock}>
@@ -95,6 +95,7 @@ function Junior(props: JuniorTypes) {
             </div>
             <HomeTask8/>
 </div>
+            <Time/>
         </div>)
 }
 
