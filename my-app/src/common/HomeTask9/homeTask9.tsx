@@ -29,7 +29,7 @@ const Time = () => {
         setTimerId(timer_id);                          //перезаписывает id таймера в лок.стейт
 
     }
-    console.log(timerId);
+
     return (
         <div className={t.timeContainer}>
             <h2 className={H.title}>Девятая домашка:</h2>

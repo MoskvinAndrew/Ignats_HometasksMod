@@ -1,26 +1,36 @@
 import React, {useReducer} from "react";
 import H from "./H.module.css";
-import {hwReducer, sortByAgeAC, sortPeoplesAC, testReducerArray} from "../../redusers/homeWorkReducer";
+import hwReducer, {
+    initialStateTypes,
+    sortByAgeAC,
+    sortDownPeoplesAC,
+    sortUpPeoplesAC,
+    testReducerArrayType
+} from "../Redux/homeWorkReducer";
 import ButtonNew from "../button/Button";
+import {v1} from "uuid";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../Redux/redux-store";
 
 
 export const HomeTask8 = ()=>{
 
-    let [peoples,dispatchToPeoples] = useReducer(hwReducer,testReducerArray)
+    const peoples = useSelector<RootState,any>(state=>state.hwReducer.testReducerArray)
+    const dispatch = useDispatch();
 
-    let arrayOfGuys = peoples.map(a=> <div key={a.id}><p >Name: {a.name}, age: {a.age}</p></div> )
+    let arrayOfGuys = peoples.map((a:any)=> <div key={a.id}><p >Name: {a.name}, age: {a.age}</p></div> )
 
     function sortPeoplesByNameUp () {
-        const action = sortPeoplesAC('up');
-        dispatchToPeoples(action);
+        const action = sortUpPeoplesAC('up');
+        dispatch(action);
     };
     function sortPeoplesByNameDown () {
-        const action = sortPeoplesAC('down');
-        dispatchToPeoples(action);
+        const action = sortDownPeoplesAC('down');
+        dispatch(action);
     }
     function filterPeoplesByAge () {
         const action = sortByAgeAC(18);
-        dispatchToPeoples(action);
+        dispatch(action);
     }
 
 

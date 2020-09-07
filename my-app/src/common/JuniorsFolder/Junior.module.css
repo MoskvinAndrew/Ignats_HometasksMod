@@ -4,7 +4,7 @@
 .buttonsBlock{
     display: flex;
     flex-direction: row;
-   margin-left: 650px;
+   margin-left: 550px;
 }
 ButtonNew{
     margin-left: 10px;

@@ -16,8 +16,6 @@ function EditableSpan (props:EditableSpanType){
 
     let [editMode,setEditMode]=useState(false);
 
-    // let [title,settitle]=useState<string>("Кликни на мне 2 раза")
-
     const onEditMode = ()=>{
         setEditMode(true);
     }

@@ -11,7 +11,7 @@ function Navigation (){
             <button className={N.dropbtn}>МЕНЮ</button>
             <div className={N.dropdown_content}>
                 <div className={N.accordion}><NavLink activeClassName={N.active}  to="/PreJunior">PreJunior</NavLink></div>
-                <div className={N.accordion}><NavLink activeClassName={N.active} to="/Junior">Junior</NavLink></div>
+                <div className={N.accordion}><NavLink activeClassName={N.active} to="/JuniorContainer">Junior</NavLink></div>
                 <div className={N.accordion}><NavLink activeClassName={N.active} to="/Junior+">Junior+</NavLink></div>
             </div>
         </div>

@@ -11,6 +11,8 @@ import Junior from "./common/JuniorsFolder/Junior";
 import JuniorPlus from "./common/JuniorsFolder/Junior+";
 import N from "./common/Navigation/N.module.css";
 import Navigation from "./common/Navigation/Navigation";
+import {RootState, StoreReduxType} from "./common/Redux/redux-store";
+import JuniorContainer from "./common/JuniorsFolder/JuniorContainer";
 
 
 export type AppTypes = {
@@ -23,6 +25,7 @@ function App() {
     let [error, setErr] = useState<string | null>(null);
     let [nNew, setnNew] = useState<string>("");
     let [newArr, setnewArr] = useState<Array<{ id: string, name: string }>>([]);
+
 
 
     function NewElemInNewArr(name: string) {
@@ -54,9 +57,9 @@ function App() {
     }
 
     return (
+
         <div className="App">
-          <HashRouter>
-                <Navigation/>
+            <Navigation/>
                 <div>
                     <Switch>
                         <Route exact path='/PreJunior' render={() => <PreJunior
@@ -73,13 +76,10 @@ function App() {
 
 
                         />}/>
-                        <Route exact path='/Junior' render={() => <Junior
-
-                        />}/>
+                        <Route exact path='/JuniorContainer' render={() => <JuniorContainer/>}/>
                         <Route exact path='/Junior+' render={() => <JuniorPlus/>}/>
                     </Switch>
                 </div>
-            </HashRouter>
         </div>
     );
 }
