@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent, useCallback, useState} from 'react';
 import './App.css';
 import ThirdHometask from "./common/3Hometask/Third-Hometask";
 import {v1} from "uuid";
@@ -27,59 +27,58 @@ function App() {
     let [newArr, setnewArr] = useState<Array<{ id: string, name: string }>>([]);
 
 
-
-    function NewElemInNewArr(name: string) {
+    let NewElemInNewArr = useCallback((name: string) => {
         let newElement = {id: v1(), name: name};
         setnewArr([newElement, ...newArr]);
-    }
+    }, [])
 
 
-    function onChangeHandler(e: ChangeEvent<HTMLInputElement>) {
+    let onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setnNew(e.currentTarget.value);
         setErr("sdf");
-    }
+    }, [])
 
-    let onEnter = () => {
+    let onEnter = useCallback(() => {
         alert('Функция сработала на энтер!!');
-    }
-    let onClick = () =>{
+    }, []);
 
+    let onClick = useCallback(() => {
         if (nNew !== '') {
             NewElemInNewArr(nNew);
             setnNew('');
         }
-    }
+    }, []);
 
-    function onKeyPressHandler() {
+    let onKeyPressHandler = useCallback(() => {
         (nNew !== "" && NewElemInNewArr(nNew));
         (nNew !== "" && alert('Privet' + ' ' + nNew));
         setnNew('');
-    }
+    }, []);
 
     return (
 
         <div className="App">
             <Navigation/>
-                <div>
-                    <Switch>
-                        <Route exact path='/PreJunior' render={() => <PreJunior
-                            onKeyPressHandler={onKeyPressHandler}
-                            onEnter={onEnter}
-                            onChangeHandler={onChangeHandler}
-                            error={error}
-                            nNew={nNew}
-                            setnNew={setnNew}
-                            typeofButton={false}
-                            newArr={newArr}
-                            NewElemInNewArr={NewElemInNewArr}
-                            onClick={onClick}
+            <div>
+                <Switch>
+                    <Route exact path='/PreJunior' render={() => <PreJunior
+                        onKeyPressHandler={onKeyPressHandler}
+                        onEnter={onEnter}
+                        onChangeHandler={onChangeHandler}
+                        error={error}
+                        nNew={nNew}
+                        setnNew={setnNew}
+                        typeofButton={false}
+                        newArr={newArr}
+                        NewElemInNewArr={NewElemInNewArr}
+                        onClick={onClick}
 
 
-                        />}/>
-                        <Route exact path='/JuniorContainer' render={() => <JuniorContainer/>}/>
-                        <Route exact path='/Junior+' render={() => <JuniorPlus/>}/>
-                    </Switch>
-                </div>
+                    />}/>
+                    <Route exact path='/JuniorContainer' render={() => <JuniorContainer/>}/>
+                    <Route exact path='/Junior+' render={() => <JuniorPlus/>}/>
+                </Switch>
+            </div>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useCallback, useState} from 'react';
 import EditableSpan from "../EditableSpan/EditableSpan";
 import J from "./Junior.module.css";
 import ButtonNew from "../button/Button";
@@ -9,6 +9,8 @@ import SelectComponent from "../Select/Select";
 import {HomeTask8} from "../Hometask8/homeTask8";
 import Time from "../HomeTask9/homeTask9";
 import Preloader from "../loading/preLoader";
+import RangeFC from "../Range/Range";
+import RangeContainer from "../Range/RangeContainer";
 
 
 export type ArrayForSelect = {
@@ -26,7 +28,7 @@ type JuniorTypes = {
     setLoading: (loading: boolean) => void
 }
 
-function Junior(props: JuniorTypes) {
+let Junior = React.memo((props: JuniorTypes) => {
 
     let ArrayForSelect = [{id: v1(), item: 'Чебурашка', digit: '1'},
         {id: v1(), item: 'Крокодил Гена', digit: '2'},
@@ -42,35 +44,34 @@ function Junior(props: JuniorTypes) {
 
     let [parentValue, setParentValue] = useState<string | undefined>('1');
 
-    let onSelectChange = (selectValue: string) => {
+    let onSelectChange = useCallback((selectValue: string) => {
         let a = ArrayForSelect.find(a => a.item == selectValue);
         if (a) {
             setParentValue(a.digit)
-        }
-        ;
-    }
-    const onRadioChange = (id: string) => {
+        }},[])
+
+
+    const onRadioChange = useCallback((id: string) => {
         let choseValue = ArrayForRadio.find(e => e.id == id);
         if (choseValue) {
             choseValue.isChecked = true;
-            console.log(choseValue)
-        }
+        }},[])
 
-    }
-
-    let waitForThreeSeconds = () => {
+    let waitForThreeSeconds = useCallback(() => {
         props.setLoading(true)
         const timer = setTimeout(() => props.setLoading(false), 2000);
-    }
+    },[ props.setLoading])
 
 
-    const saveClick = () => {
+    const saveClick = useCallback(() => {
         saveState<StateType>("test", {value: title});
-    }
-    const restoreTitle = () => {
+    },[])
+    const restoreTitle = useCallback(() => {
         const state: StateType = restoreState<StateType>("test", {value: 'jhh'});
 
-    }
+    },[])
+
+
 
 
     return (
@@ -115,9 +116,11 @@ function Junior(props: JuniorTypes) {
                     <ButtonNew name={'Подумать 3 секунды'} onClick={waitForThreeSeconds}/>
                 </div>
 
-            </div>}
+                <RangeContainer/>
+            </div>
+            }
 
         </div>)
-}
+})
 
 export default Junior;

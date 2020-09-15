@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {useCallback, useReducer} from "react";
 import H from "./H.module.css";
 import hwReducer, {
     initialStateTypes,
@@ -13,25 +13,26 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../Redux/redux-store";
 
 
-export const HomeTask8 = ()=>{
+export const HomeTask8 = React.memo(()=>{
 
     const peoples = useSelector<RootState,any>(state=>state.hwReducer.testReducerArray)
     const dispatch = useDispatch();
 
-    let arrayOfGuys = peoples.map((a:any)=> <div key={a.id}><p >Name: {a.name}, age: {a.age}</p></div> )
+    let arrayOfGuys = peoples.map((a:any)=> <div key={a.id}><p >Name:{a.name}, age:{a.age}</p></div> )
 
-    function sortPeoplesByNameUp () {
+    let sortPeoplesByNameUp = useCallback(() => {
         const action = sortUpPeoplesAC('up');
         dispatch(action);
-    };
-    function sortPeoplesByNameDown () {
+    },[])
+
+    let sortPeoplesByNameDown = useCallback(() => {
         const action = sortDownPeoplesAC('down');
         dispatch(action);
-    }
-    function filterPeoplesByAge () {
+    },[])
+    let filterPeoplesByAge = useCallback(() => {
         const action = sortByAgeAC(18);
         dispatch(action);
-    }
+    },[])
 
 
 
@@ -53,4 +54,4 @@ export const HomeTask8 = ()=>{
                        onClick={filterPeoplesByAge}/>
         </div>
     </div>
-}
+})

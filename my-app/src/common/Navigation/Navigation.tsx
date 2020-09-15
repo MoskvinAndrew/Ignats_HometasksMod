@@ -5,7 +5,7 @@ import EditableSpan from "../EditableSpan/EditableSpan";
 
 
 
-function Navigation (){
+const Navigation = React.memo(() => {
     return(
         <div className={N.dropdown}>
             <button className={N.dropbtn}>МЕНЮ</button>
@@ -18,6 +18,6 @@ function Navigation (){
 
 
     )
-}
+})
 
 export default Navigation;

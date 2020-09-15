@@ -1,4 +1,4 @@
-import React, {ChangeEvent, RefObject} from 'react';
+import React, {ChangeEvent, RefObject, useCallback} from 'react';
 import {ArrayForRadio} from "../JuniorsFolder/Junior";
 
 type RadioTypes = {
@@ -9,14 +9,15 @@ type RadioTypes = {
 }
 
 
-function Radio(props: RadioTypes) {
+const Radio = React.memo((props: RadioTypes) => {
 
     // let radioButton = React.createRef<HTMLTextAreaElement>();
 
-    let onStatusChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    let onStatusChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         let newIsDoneValue = e.currentTarget.id;
         props.onRadioChange(newIsDoneValue)
-    }
+    },[props.onRadioChange])
+
     let inputs = props.value.map((i) => <div key={i.id}>
 
         <label>{i.item}
@@ -41,6 +42,6 @@ function Radio(props: RadioTypes) {
 
         </div>
     )
-}
+})
 
 export default Radio;

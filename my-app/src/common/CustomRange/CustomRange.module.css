@@ -1,0 +1,68 @@
+.container {
+    /*position: relative;*/
+    width: 100%;
+    overflow: hidden;
+}
+
+:root {
+    --tracker-color: black;
+}
+
+
+
+.range_2 {
+    --thumb-color: #17BEBB;
+    --thumb-behind-color: #83F9F8;
+}
+
+
+
+.range_2 input[type="range"] {
+    -webkit-appearance: none;
+    width: 300px;
+}
+
+.range_2 input[type="range"]:focus {
+    outline: none;
+}
+
+.range_2 input[type="range"]::-webkit-slider-runnable-track {
+    width: 300px;
+    cursor: pointer;
+    border: 1px solid var(--tracker-color);
+    overflow: hidden;
+}
+
+.range_2 input[type="range"]::-webkit-slider-thumb {
+    height: 12px;
+    width: 45px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-bottom: 1px solid var(--thumb-color);
+    box-shadow: 0 0 0 var(--thumb-behind-color), -40px 0 0 var(--thumb-behind-color), -85px 0 0 var(--thumb-behind-color), -130px 0 0 var(--thumb-behind-color),
+    -175px 0 0 var(--thumb-behind-color), -220px 0 0 var(--thumb-behind-color), -265px 0 0 var(--thumb-behind-color), -310px 0 0 var(--thumb-behind-color),
+    -350px 0 0 var(--thumb-behind-color), -390px 0 0 var(--thumb-behind-color), -409px 0 0 var(--thumb-behind-color);
+    background: var(--thumb-color);
+}
+
+/* datalist {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+datalist option {
+    position: relative;
+    background: white;
+    top: 18px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    min-height: 13px;
+}
+
+datalist option:first-of-type {
+    visibility: hidden;
+}
+
+datalist option:last-of-type {
+    border-right: 0;
+}

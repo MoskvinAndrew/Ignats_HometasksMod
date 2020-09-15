@@ -3,7 +3,7 @@ import React, {
     ChangeEvent,
     DetailedHTMLProps,
     InputHTMLAttributes,
-    KeyboardEvent,
+    KeyboardEvent, useCallback,
     useState
 } from 'react';
 import s from './inputNew.module.css';
@@ -25,14 +25,14 @@ export type InputNyaTypes = {
 };
 
 
-function InputNew(props: InputNyaTypes) {
+let InputNew = React.memo((props: InputNyaTypes) => {
 
-    let onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    let onKeyPressHandler = useCallback((e: KeyboardEvent<HTMLInputElement>) => {
         if (e.charCode === 13) {
             props.onKeyPressHandler && props.onKeyPressHandler(e)
             props.onEnter && props.onEnter()
         }
-    }
+    },[props.onKeyPressHandler,props.onEnter])
 
     return (
         <>
@@ -47,6 +47,6 @@ function InputNew(props: InputNyaTypes) {
         </>
 
     )
-}
+})
 
 export default InputNew;

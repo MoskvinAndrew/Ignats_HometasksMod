@@ -22,7 +22,7 @@ type ThirdHometaskTypes = {
 }
 
 
-function ThirdHometask(props: ThirdHometaskTypes) {
+let ThirdHometask = React.memo((props: ThirdHometaskTypes) => {
 
     return (
         <div className={TH.inputContainer}>
@@ -47,6 +47,6 @@ function ThirdHometask(props: ThirdHometaskTypes) {
 
         </div>
     )
-}
+})
 
 export default ThirdHometask;

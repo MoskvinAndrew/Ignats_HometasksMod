@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import ButtonNew from "../button/Button";
 import t from "./T.module.css"
 import H from "../Hometask8/H.module.css";
-import MouseOverPopover from "./popUp";
+import {MouseOverPopover} from "./popUp";
 
-const Time = () => {
+
+const Time = React.memo(() => {
 
 
     let [watch, setWatch] = useState(new Date().toLocaleTimeString());    //лок.стейт для часов
@@ -14,21 +15,22 @@ const Time = () => {
     let dateValue = new Date().toLocaleDateString();
 
 
-    let setDate = (time: any) => {                    //колбэк который обновляет время(непонятка с параметром)
+    let setDate = useCallback((time: string) => {                    //колбэк который обновляет время(непонятка с параметром)
         return setWatch(new Date().toLocaleTimeString());
-    }
+    },[])
 
-    let stopTime = () => {
+    let stopTime = useCallback(() => {
+
         return clearInterval(timerId)                  //останавливает время, используя актуальный id таймера
-    }
+    },[timerId])
 
 
-    let setIntervalClick = () => {
+    let setIntervalClick = useCallback(() => {
         clearInterval(timerId);                        // останавливает предыдущий таймер
         const timer_id = setInterval(() => setDate(new Date().toLocaleString()), 1000);
         setTimerId(timer_id);                          //перезаписывает id таймера в лок.стейт
 
-    }
+    },[])
 
     return (
         <div className={t.timeContainer}>
@@ -44,6 +46,6 @@ const Time = () => {
         </div>
     )
 
-}
+})
 export default Time;
 

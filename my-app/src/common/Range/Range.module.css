@@ -1,0 +1,11 @@
+.rangeContainer{
+    border:2px solid red;
+    border-radius: 30px;
+    height:50vh;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #f8e380;
+}
+
+

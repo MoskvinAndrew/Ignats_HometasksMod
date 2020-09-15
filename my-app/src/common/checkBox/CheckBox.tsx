@@ -5,7 +5,7 @@ type CheckBoxNewTypes = {
 
 }
 
-function CheckBoxNew(props: CheckBoxNewTypes) {
+let CheckBoxNew = React.memo((props: CheckBoxNewTypes) => {
     return <div className={C.chekboxtwo}>
         <label className={C.checkbox}>
             <input type="checkbox" checked />
@@ -13,7 +13,5 @@ function CheckBoxNew(props: CheckBoxNewTypes) {
 
         </label>
     </div>
-}
-
-
+})
 export default CheckBoxNew;

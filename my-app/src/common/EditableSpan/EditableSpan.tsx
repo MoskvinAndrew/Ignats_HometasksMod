@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useCallback, useState} from 'react';
 import InputNew from "../input/inputNew";
 import ES from "./ES.module.css"
 
@@ -9,28 +9,26 @@ type EditableSpanType={
     settitle:(title:string)=>void,
 }
 
-function EditableSpan (props:EditableSpanType){
+let  EditableSpan = React.memo((props:EditableSpanType) => {
 
 
 
 
     let [editMode,setEditMode]=useState(false);
 
-    const onEditMode = ()=>{
+    const onEditMode = useCallback(()=>{
         setEditMode(true);
-    }
-    const offEditMode = ()=>{
+    },[])
+
+
+    const offEditMode = useCallback(()=>{
         setEditMode(false);
         props.settitle(props.title);
-    }
+    },[props.settitle,props.title])
 
-    const changeTitle = (e: ChangeEvent<HTMLInputElement>)=>{
+    const changeTitle = useCallback((e: ChangeEvent<HTMLInputElement>)=>{
         props.settitle(e.currentTarget.value)
-    }
-
-
-
-
+    },[props.settitle]);
 
     return editMode
         ? <InputNew
@@ -39,7 +37,7 @@ function EditableSpan (props:EditableSpanType){
             onKeyPressHandler={offEditMode}
             onChangeHandler={changeTitle}
             offEditMode={offEditMode}/>:
-        <span className={ES.editableSpan} onDoubleClick={onEditMode}>{props.title}</span>}
+        <span className={ES.editableSpan} onDoubleClick={onEditMode}>{props.title}</span>})
 
 
 

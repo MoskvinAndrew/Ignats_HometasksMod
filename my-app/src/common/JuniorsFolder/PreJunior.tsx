@@ -21,7 +21,7 @@ type PreJunior = {
 
 }
 
-function PreJunior(props:PreJunior){
+const PreJunior = React.memo((props:PreJunior) => {
     return(
         <div>
             <ThirdHometask
@@ -58,6 +58,6 @@ function PreJunior(props:PreJunior){
             </div>
         </div>
     )
-}
+})
 
 export default PreJunior;
