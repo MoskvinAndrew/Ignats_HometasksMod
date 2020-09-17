@@ -108,10 +108,10 @@ export default function CustomizedSlider(props: CustomizedSliderType) {
                 <AirbnbSlider
                     ThumbComponent={AirbnbThumbComponent}
                     getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
-                    defaultValue={[100, 300]}
+                    defaultValue={[props.rangeDblValue[0], props.rangeDblValue[1]]}
                     onChange={onRangeChanged}
-                    max={props.rangeDblValue[1]}
-                    min={props.rangeDblValue[0]}
+                    max={1000}
+                    min={10}
                 />
                 От {props.rangeDblValue[0]} до {props.rangeDblValue[1]}
             </div>
