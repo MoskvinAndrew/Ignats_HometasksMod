@@ -110,8 +110,8 @@ export default function CustomizedSlider(props: CustomizedSliderType) {
                     getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
                     defaultValue={[100, 300]}
                     onChange={onRangeChanged}
-                    max={1000}
-                    min={10}
+                    max={props.rangeDblValue[1]}
+                    min={props.rangeDblValue[0]}
                 />
                 От {props.rangeDblValue[0]} до {props.rangeDblValue[1]}
             </div>
