@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {ChangeEvent, useCallback} from 'react';
 import {withStyles, makeStyles, Theme, createStyles} from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
@@ -94,11 +94,10 @@ export default function CustomizedSlider(props: CustomizedSliderType) {
     const classes = useStyles();
 
 
-    let onRangeChanged = useCallback((event: React.ChangeEvent<{}>, value: Array<number>) => {
+    let onRangeChanged = useCallback((event: ChangeEvent<{}>, value: Array<number>) => {
         let rr = value;
         props.onDblChangeRange(rr);
-
-    }, [props.onDblChangeRange])
+        }, [props.onDblChangeRange])
 
 
     return (
@@ -109,7 +108,7 @@ export default function CustomizedSlider(props: CustomizedSliderType) {
                     ThumbComponent={AirbnbThumbComponent}
                     getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
                     defaultValue={[props.rangeDblValue[0], props.rangeDblValue[1]]}
-                    // onChange={onRangeChanged}
+                     onChange={onRangeChanged}
                     max={1000}
                     min={10}
                 />

@@ -15,6 +15,7 @@ const DoubleRangeContainer = () => {
     let onDblChangeRange = (DRvalue:Array<number>) => {
         const action = setDBLRangeValue(DRvalue);
         dispatch(action);
+
     };
 
 
