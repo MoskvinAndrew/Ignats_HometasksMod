@@ -1,18 +1,11 @@
 import React, {ChangeEvent, KeyboardEvent, useCallback, useState} from 'react';
 import './App.css';
-import ThirdHometask from "./common/3Hometask/Third-Hometask";
 import {v1} from "uuid";
-import InputNew from "./common/input/inputNew";
-import CheckBoxNew from "./common/checkBox/CheckBox";
-import ButtonNew from "./common/button/Button";
-import {BrowserRouter, HashRouter, NavLink, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import PreJunior from "./common/JuniorsFolder/PreJunior";
-import Junior from "./common/JuniorsFolder/Junior";
-import JuniorPlus from "./common/JuniorsFolder/Junior+";
-import N from "./common/Navigation/N.module.css";
 import Navigation from "./common/Navigation/Navigation";
-import {RootState, StoreReduxType} from "./common/Redux/redux-store";
 import JuniorContainer from "./common/JuniorsFolder/JuniorContainer";
+import JuniorPlusContainer from "./common/JuniorsFolder/JuniorPlusContainer";
 
 
 export type AppTypes = {
@@ -76,7 +69,7 @@ function App() {
 
                     />}/>
                     <Route exact path='/JuniorContainer' render={() => <JuniorContainer/>}/>
-                    <Route exact path='/Junior+' render={() => <JuniorPlus/>}/>
+                    <Route exact path='/Junior+' render={() => <JuniorPlusContainer/>}/>
                 </Switch>
             </div>
         </div>

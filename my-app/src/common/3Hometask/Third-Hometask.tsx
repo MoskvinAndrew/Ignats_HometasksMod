@@ -7,6 +7,7 @@ import ButtonNew from "../button/Button";
 
 
 
+
 type ThirdHometaskTypes = {
     nNew: string,
     newArr: Array<AppTypes>,
@@ -23,6 +24,20 @@ type ThirdHometaskTypes = {
 
 
 let ThirdHometask = React.memo((props: ThirdHometaskTypes) => {
+
+
+
+    let axios = {
+        get(){
+            let pr = new Promise((resolve,reject)=> {
+                setTimeout(()=>{resolve("Yoyoyo")},3000)
+
+            });
+            return pr;
+        }
+    }
+ axios.get().then(data=>console.log(data));
+
 
     return (
         <div className={TH.inputContainer}>
