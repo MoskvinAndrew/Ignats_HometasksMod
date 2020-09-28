@@ -1,11 +1,5 @@
 import React from "react";
-import hwReducer,
-{
-    initialStateTypes,
-    sortByAgeAC, sortDownPeoplesAC, sortUpPeoplesAC
-
-
-} from '../common/Redux/homeWorkReducer';
+import hwReducer, {initialStateTypes,sortByAgeAC, sortDownPeoplesAC, sortUpPeoplesAC} from '../common/Redux/homeWorkReducer';
 import {v1} from "uuid";
 
 test('sortTestByNameUp',()=>{

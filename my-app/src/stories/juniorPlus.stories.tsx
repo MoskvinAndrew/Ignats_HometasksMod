@@ -8,6 +8,6 @@ export default {
     component:JuniorPlus
 } as Meta;
 
-export const CustomizedMenusBaseExample = (props:any) =>{
-    return <JuniorPlus onThemeChange={action("sd") }/>
+export const juniorPageBaseExample = (props:any) =>{
+    return <JuniorPlus onThemeChange={action("sd")} themeSwitch={'light'} />
 }
