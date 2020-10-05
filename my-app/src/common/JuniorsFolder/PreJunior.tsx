@@ -51,7 +51,7 @@ const PreJunior = React.memo((props:PreJunior) => {
                     onClick={()=>console.log("sdf")}
                     />
 
-                <CheckBoxNew/>
+                {/*<CheckBoxNew checkBoxHandler={()=>{}} reducerCheckBoxValue=/>*/}
 
 
 

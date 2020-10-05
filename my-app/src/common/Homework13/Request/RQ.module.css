@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+
+}
+.display{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width:300px;
+    background-color: #322e2e;
+
+}

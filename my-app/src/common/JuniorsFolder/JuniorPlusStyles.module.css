@@ -1,0 +1,16 @@
+.generalContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+
+.themeToggle{
+}
+.requestSend{
+    border: 4px solid #4b4468;
+    display: inline-flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
